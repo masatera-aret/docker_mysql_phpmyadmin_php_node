@@ -5,7 +5,7 @@ RUN apt-get update \
     && docker-php-ext-install pdo_mysql
 
 # composerをインストール
-RUN RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+COPY --from=composer /usr/bin/composer /usr/bin/composer
 
 # Node.jsをインストール
 RUN curl -sL https://deb.nodesource.com/setup_10.x | bash -
